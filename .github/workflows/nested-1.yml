@@ -1,0 +1,16 @@
+on:
+  workflow_call:
+
+jobs:
+  nested-1-1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo OK
+
+  nested-1-2:
+    if: false
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo NG
+          exit 1
