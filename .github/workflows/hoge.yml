@@ -3,6 +3,7 @@ on:
 
 jobs:
   hoge-check:
+    if: false
     runs-on: ubuntu-latest
     steps:
       - run: echo OK
