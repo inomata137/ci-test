@@ -1,0 +1,13 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - id: default
+        run: echo "foo=bar" >> $GITHUB_OUTPUT
+      - id: skipped
+        if: false
+        run: echo "foo=baz" >> $GITHUB_OUTPUT
+      - run: echo ${{ steps.skipped.outputs.foo || steps.default.outputs.foo }}
